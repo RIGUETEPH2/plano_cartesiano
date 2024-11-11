@@ -84,22 +84,22 @@ void processar_e_direcionar_funcionalidade_opcao(t_controle_pontos* controle_pon
 }
 
 void cadastrar(t_controle_pontos *controle_pontos2D){
- t_pontos_2D pontos_2D;
- printf("DIGITE OS PARES CARDEAIS\n");
- printf(" INFORME O PONTO X \n");
- scanf("%i",&pontos_2D.x);
- printf(" INFORME O PONTO Y\n");
- scanf("%i",&pontos_2D.y);
+  t_pontos_2D pontos_2D;
+  printf("DIGITE OS PARES CARDEAIS\n");
+  printf(" INFORME O PONTO X \n");
+  scanf("%i",&pontos_2D.x);
+  printf(" INFORME O PONTO Y\n");
+  scanf("%i",&pontos_2D.y);
 
-controle_pontos2D->pontos_2D[controle_pontos2D->quantidade++] = pontos_2D;
-controle_pontos2D->pontos_2D = (t_pontos_2D*) realloc(controle_pontos2D->pontos_2D,(controle_pontos2D->quantidade + 1 ) * sizeof(t_pontos_2D));
+  controle_pontos2D->pontos_2D[controle_pontos2D->quantidade++] = pontos_2D;
+  controle_pontos2D->pontos_2D = (t_pontos_2D*) realloc(controle_pontos2D->pontos_2D,(controle_pontos2D->quantidade + 1 ) * sizeof(t_pontos_2D));
 };
 
 void listar_opcao(t_controle_pontos* controle_pontos2D){
-for (int i = 0; i < controle_pontos2D->quantidade; ++i)
-{
-  printf("\n%i\n(%i,%i)\n\n",i+1,controle_pontos2D->pontos_2D[i].x,controle_pontos2D->pontos_2D[i].y);
-}
+  for (int i = 0; i < controle_pontos2D->quantidade; ++i)
+  {
+    printf("\n%i\n(%i,%i)\n\n",i+1,controle_pontos2D->pontos_2D[i].x,controle_pontos2D->pontos_2D[i].y);
+  }
    
 };
 /*
@@ -108,18 +108,18 @@ void excluir_opcao(){
 };
 */
 void alterar_opcao(t_controle_pontos* controle_pontos2D){
-int contador;
-printf("digite qual numero vc quer alterar em posicao ordinal\n");
-scanf("%i", &contador);
-for (int i = 0; i < controle_pontos2D->quantidade; ++i)
-
-if(i == contador -1){
-  printf("voce vai alterar o par ordenado (%i,%i)\n",controle_pontos2D->pontos_2D[(contador-1)].x,controle_pontos2D->pontos_2D[(contador-1)].y);
-  printf("digite o novo valor de x\n");
-  scanf("%i", &controle_pontos2D->pontos_2D[(contador-1)].x);
-  printf("digite o novo valor para y\n");
-  scanf("%i", &controle_pontos2D->pontos_2D[(contador-1)].y);
-}
+  int contador;
+  printf("digite qual numero vc quer alterar em posicao ordinal\n");
+  scanf("%i", &contador);
+  for (int i = 0; i < controle_pontos2D->quantidade; ++i)
+    if(i == contador -1)
+    {
+      printf("voce vai alterar o par ordenado (%i,%i)\n",controle_pontos2D->pontos_2D[(contador-1)].x,controle_pontos2D->pontos_2D[(contador-1)].y);
+      printf("digite o novo valor de x\n");
+      scanf("%i", &controle_pontos2D->pontos_2D[(contador-1)].x);
+      printf("digite o novo valor para y\n");
+      scanf("%i", &controle_pontos2D->pontos_2D[(contador-1)].y);
+    }
    
 };
 
@@ -142,13 +142,14 @@ void calcular_distancia(t_controle_pontos* controle_de_pontos2D){
   posicao_x2 = controle_de_pontos2D->pontos_2D[ponto2-1].x;
   posicao_y2 = controle_de_pontos2D->pontos_2D[ponto2-1].y;
 
-float poteciar_x = pow(posicao_x2 - posicao_x1, 2); // (x2 - x1)^2
-float poteciar_y = pow(posicao_y2 - posicao_y1, 2); // (y2 - y1)^2
- x = (poteciar_x + poteciar_y);
-float calculo_2d = sqrt(x); 
+  float poteciar_x = pow(posicao_x2 - posicao_x1, 2); // (x2 - x1)^2
+  float poteciar_y = pow(posicao_y2 - posicao_y1, 2); // (y2 - y1)^2
+  x = (poteciar_x + poteciar_y);  
+  float calculo_2d = sqrt(x); 
 
-printf("a distancia de dois pontos e %f\n",calculo_2d);
+  printf("a distancia de dois pontos e %f\n",calculo_2d);
 }
+
 void inicializar(t_controle_pontos* controle_de_pontos2D){
    controle_de_pontos2D->quantidade = 0;// inicializei com 0;
    controle_de_pontos2D->pontos_2D =(t_pontos_2D*) malloc(sizeof(t_pontos_2D)); //
