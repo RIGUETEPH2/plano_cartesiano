@@ -58,7 +58,7 @@ void seletor_de_opcao(int *opcao){
   scanf("%i", opcao);
 };
 
-void processar_e_direcionar_funcionalidade_opcao(t_controle_pontos *controle_pontos2D, int opcao){
+void processar_e_direcionar_funcionalidade_opcao(t_controle_pontos* controle_pontos2D, int opcao){
    switch(opcao){
     case 0 :
       printf("saindo do programa");
@@ -95,7 +95,7 @@ controle_pontos2D->pontos_2D[controle_pontos2D->quantidade++] = pontos_2D;
 controle_pontos2D->pontos_2D = (t_pontos_2D*) realloc(controle_pontos2D->pontos_2D,(controle_pontos2D->quantidade + 1 ) * sizeof(t_pontos_2D));
 };
 
-void listar_opcao(t_controle_pontos *controle_pontos2D){
+void listar_opcao(t_controle_pontos* controle_pontos2D){
 for (int i = 0; i < controle_pontos2D->quantidade; ++i)
 {
   printf("\n%i\n(%i,%i)\n\n",i+1,controle_pontos2D->pontos_2D[i].x,controle_pontos2D->pontos_2D[i].y);
@@ -107,7 +107,7 @@ void excluir_opcao(){
    
 };
 */
-void alterar_opcao(t_controle_pontos *controle_pontos2D){
+void alterar_opcao(t_controle_pontos* controle_pontos2D){
 int contador;
 printf("digite qual numero vc quer alterar em posicao ordinal\n");
 scanf("%i", &contador);
@@ -123,7 +123,7 @@ if(i == contador -1){
    
 };
 
-void calcular_distancia(t_controle_pontos *controle_de_pontos2D){
+void calcular_distancia(t_controle_pontos* controle_de_pontos2D){
   float posicao_x1;
   float posicao_y1;
   float posicao_x2;
@@ -149,7 +149,7 @@ float calculo_2d = sqrt(x);
 
 printf("a distancia de dois pontos e %f\n",calculo_2d);
 }
-void inicializar(t_controle_pontos *controle_de_pontos2D){
+void inicializar(t_controle_pontos* controle_de_pontos2D){
    controle_de_pontos2D->quantidade = 0;// inicializei com 0;
    controle_de_pontos2D->pontos_2D =(t_pontos_2D*) malloc(sizeof(t_pontos_2D)); //
 }
